@@ -11,7 +11,7 @@
 
 ## 如何使用！！！
 
-1.  **克隆或下载项目**！！
+1.  **克隆或下载项目**！！！
 
 2.  **配置 `config.py`**！！！
 
@@ -34,4 +34,8 @@
     脚本执行完毕后，你会在 `OUTPUT_PATH` 指定的位置找到生成的 `tree.md` 文件！！！
 
 
-<p style="text-align: center; font-weight: bold; color: #ff0000ff;">--！！！大声发友情赞助！！！--</p>
+<p align="center">
+本栏目由
+<img src="https://img.shields.io/badge/大声发！！！-red" alt="由大声发友情赞助">
+友情赞助！！！--
+</p>
