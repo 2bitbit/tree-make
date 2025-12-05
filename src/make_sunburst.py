@@ -10,7 +10,6 @@ OUTPUT_FILE = Path(__file__).parent.parent / "outputs" / "index.html"
 
 ROOT_NAME = "My Knowledge Universe"
 IMAGE_OUTPUT_FILE = Path(__file__).parent.parent / "outputs" / "preview.png"
-
 # ===========================================
 
 
@@ -107,16 +106,22 @@ def generate_sunburst(nodes):
             insidetextorientation="radial",
             hoverinfo="label+percent parent",
             marker=dict(colorscale="Viridis", line=dict(color="white", width=0.5)),
+            textfont=dict(
+                size=24,          
+                family="Arial Black"
+            ),
         )
     )
 
     fig.update_layout(
         title_text="My Knowledge Graph",
         title_x=0.5,
+        title_font=dict(
+            size=32,
+            family="Impact, sans-serif"
+        ),
         font_family="sans-serif",
-        margin=dict(t=40, l=0, r=0, b=0),
-        width=1000,
-        height=1000,
+        margin=dict(t=100, l=0, r=0, b=0),
     )
 
     return fig
@@ -125,7 +130,7 @@ def generate_sunburst(nodes):
 def make_sunburst():
     print(f"1. 正在读取 {INPUT_FILE}...")
     if not os.path.exists(INPUT_FILE):
-        print(f"❌ 找不到 {INPUT_FILE}，请确认文件在脚本同一目录下。")
+        print(f"❌ 找不到 {INPUT_FILE}")
         return
 
     nodes = parse_tree_file(INPUT_FILE)
@@ -140,6 +145,7 @@ def make_sunburst():
         if fig:
             print(f"4. 正在保存为 {OUTPUT_FILE}...")
             fig.write_html(OUTPUT_FILE)
+            OUTPUT_FILE.write_text('<div align="center">'+OUTPUT_FILE.read_text()+"\n</div>")
             print(f"5. 正在导出预览图: {IMAGE_OUTPUT_FILE}...")
             # scale=2 表示 2倍分辨率 (Retina效果)，engine="kaleido" 使用 kaleido 引擎
             fig.write_image(str(IMAGE_OUTPUT_FILE), width=1000, height=1000, scale=2, engine="kaleido")
@@ -148,3 +154,5 @@ def make_sunburst():
         print(f"❌ 生成失败: {e}")
         # 添加友好提示
         print("提示：如果 HTML 生成成功但图片失败，请检查是否安装了库: pip install kaleido")
+
+make_sunburst()
