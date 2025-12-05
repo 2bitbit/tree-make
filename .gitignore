@@ -1,5 +1,8 @@
 *
 !README.md
 !config.py
-!main.py
+!src/
+!src/**
 !.gitignore
+__pychache__/
+__pychache__/**
