@@ -61,7 +61,7 @@ whitelist = ["keyboard.md", "tokenizers"]     # 排除被误杀的项 (完全相
 在项目根目录下打开终端，执行以下命令：
 
 ```bash
-uv run --with plotly --with kaleido src/main.py
+uv run src/main.py
 ```
 
 执行成功后，结果将保存在 `outputs/` 目录中：

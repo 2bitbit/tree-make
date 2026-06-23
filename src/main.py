@@ -1,3 +1,11 @@
+# /// script
+# requires-python = ">=3.10"
+# dependencies = [
+#     "plotly",
+#     "kaleido"
+# ]
+# ///
+
 from make_tree import make_tree
 from make_sunburst import make_sunburst
 
