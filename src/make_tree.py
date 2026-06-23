@@ -1,17 +1,5 @@
 from pathlib import Path
-from LISTS import sensitive_words_included
-
-# ================ 配置区域 =================
-INPUT_DIR = Path(r"D:\Notes")
-OUTPUT_FILE = Path(__file__).parent.parent / "outputs" / "tree.md"
-
-IGNORE_SET = {
-    ".git",
-    ".obsidian",
-    ".smart-env",
-    "Z_attachments",
-}
-# ==========================================
+from config import INPUT_DIR, OUTPUT_TREE, IGNORE_SET, sensitive_words_included
 
 
 def is_sensitive(name: str) -> bool:
@@ -79,7 +67,7 @@ def make_tree():
     tree_structure.append("```")
 
     # 输出到文件
-    output_path = OUTPUT_FILE
+    output_path = OUTPUT_TREE
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text("\n".join(tree_structure), encoding="utf-8")
 
